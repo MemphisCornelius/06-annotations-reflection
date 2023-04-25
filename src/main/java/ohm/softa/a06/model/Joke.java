@@ -1,11 +1,9 @@
 package ohm.softa.a06.model;
 
+import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author Peter Kurfer
@@ -13,9 +11,9 @@ import java.util.List;
  */
 public final class Joke {
 
-	private String identifier;
-	private String content;
-	private List<String> rubrics;
+	@SerializedName("id") private String identifier;
+	@SerializedName("value") private String content;
+	@SerializedName("categories") private String[] rubrics;
 
 
 	public String getIdentifier() {
@@ -26,6 +24,21 @@ public final class Joke {
 		return content;
 	}
 
+	public String[] getRubrics() {
+		return rubrics;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setRubrics(String[] rubrics) {
+		this.rubrics = rubrics;
+	}
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
